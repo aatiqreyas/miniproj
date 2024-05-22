@@ -1,9 +1,9 @@
 <?php
 // connect.php
 $server = 'localhost';
-$username = 'usernamehere';
-$password = 'passwordhere';
-$database = 'databasenamehere';
+$username = 'root';
+$password = '';
+$database = 'forumdb';
 $conn = mysqli_connect($server, $username, $password, $database);
 // Check connection
 if (!$conn) {

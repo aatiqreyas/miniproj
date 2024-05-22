@@ -1,5 +1,16 @@
+<?php
+session_start();
+
+// Check if the "signed_in" key is set and initialize it if necessary
+if (!isset($_SESSION['signed_in'])) {
+    $_SESSION['signed_in'] = false; // Assuming signed_in should be false by default
+}
+
+// Now you can safely access the "signed_in" key without triggering the warning
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -16,15 +27,14 @@
         <a class="item" href="/forum/create_topic.php">Create a topic</a> -
         <a class="item" href="/forum/create_cat.php">Create a category</a>
         <div id="userbar">
-<div id="userbar">
-    if($_SESSION['signed_in'])
- 	{
- 	 	echo 'Hello' . <?php $_SESSION['user_name'] ?> . '. Not you? <a href="signout.php">Sign out</a>';
- 	}
- 	else
- 	{
- 		echo '<a href="signin.php">Sign in</a> or <a href="sign up">create an account</a>.';
- 	}
-</div>
+            <?php
+            // Check if user is signed in
+            if ($_SESSION['signed_in']) {
+                echo 'Hello ' . $_SESSION['user_name'] . '. Not you? <a href="signout.php">Sign out</a>';
+            } else {
+                echo '<a href="signin.php">Sign in</a> or <a href="signup.php">create an account</a>.';
+            }
+            ?>
         </div>
-        <div id="content">
+    </div>
+    <div id="content">
