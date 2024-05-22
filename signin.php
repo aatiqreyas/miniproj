@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     Password: <input type="password" name="user_pass" required> 
     Password again: <input type="password" name="user_pass_check" required> 
     E-mail: <input type="email" name="user_email" required> 
-    <input type="submit" value="Sign Up" /> 
+    <input type="submit" value="Sign In" /> 
     </form>';
 } else {
     // Form has been posted, process the data
